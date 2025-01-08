@@ -1,0 +1,1 @@
+from main_app.apps.qr_generator import qrcode

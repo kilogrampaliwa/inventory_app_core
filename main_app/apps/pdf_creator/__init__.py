@@ -1,0 +1,1 @@
+from main_app.apps.pdf_creator import PDFGenerator
