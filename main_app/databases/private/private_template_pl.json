@@ -2,6 +2,6 @@
     "imię": "imię",
     "nazwisko": "nazwisko",
     "adres":"adres",
-    "numer_identyfikacyjny/NIP": "numer_identyfikacyjny/NIP",
+    "numer_identyfikacyjny|NIP": "numer_identyfikacyjny|NIP",
     "numer_konta": "numer_konta"
 }

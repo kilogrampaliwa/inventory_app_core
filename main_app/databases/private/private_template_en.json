@@ -1,8 +1,7 @@
 {
     "name": "name",
     "surname": "surname",
-    "":"",
     "address":"address",
-    "ID_number/NIP": "ID_number/NIP",
+    "ID_number|NIP": "ID_number|NIP",
     "bank_account": "bank_account"
 }
