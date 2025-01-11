@@ -3,7 +3,7 @@ from main_app.utils import *
 
 class TemplateFiller:
 
-    def __init__(self, template_name: str, templates_dict_path: str):
+    def __init__(self, templates_dict_path: str, template_name: str = "none"):
         """
         Initializes the TemplateFiller object.
 
@@ -15,6 +15,21 @@ class TemplateFiller:
             ValueError: If the provided template_name does not exist in the templates.
         """
         self.__templates = load_json(templates_dict_path)
+        self.__validation = False
+
+        if template_name!="none":   self.__call__(template_name)
+
+    def __call__(self, template_name: str):
+        """
+        Initializes the TemplateFiller object.
+
+        Args:
+            template_name (str): The name of the template.
+            templates_dict_path (str): Path to the JSON file containing templates.
+
+        Raises:
+            ValueError: If the provided template_name does not exist in the templates.
+        """
         self.__validation = False
 
         if plain_dict(template_name): pass
@@ -30,7 +45,16 @@ class TemplateFiller:
             dict: A flattened dictionary representation of the template.
         """
         return self.__modifier.get_flattened_dict()
-    
+
+    def get_flattened_whole_dict(self):
+        """
+        Retrieves a flattened version of the template dictionary.
+
+        Returns:
+            dict: A flattened dictionary representation of the template.
+        """
+        return self.__modifier.flatten_dict(self.__templates)
+
     def check_values_not_empty(self) -> bool:
         """
         Checks whether all values in the template dictionary are non-empty.

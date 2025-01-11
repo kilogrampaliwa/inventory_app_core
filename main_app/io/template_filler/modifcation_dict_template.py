@@ -5,14 +5,14 @@ class ModifcationDictTemplate:
         self.__original_dict = input_dict
         self.__validation = False
         # Create a flattened dictionary with empty string values
-        self.__flattened_dict = self._flatten_dict(self.__original_dict)
+        self.__flattened_dict = self.flatten_dict(self.__original_dict)
         if zero_values:
             # Replace all values with empty strings
             self.__flattened_dict = {key: "" for key in self.__flattened_dict}
         # New dict
         self.__new_dict = {}
 
-    def _flatten_dict(self, d, parent_key="", sep="/")->dict:
+    def flatten_dict(self, d, parent_key="", sep="/")->dict:
         """
         Recursively flatten a multi-level dictionary.
         """
@@ -20,7 +20,7 @@ class ModifcationDictTemplate:
         for k, v in d.items():
             new_key = f"{parent_key}{sep}{k}" if parent_key else k
             if isinstance(v, dict):
-                items.update(self._flatten_dict(v, new_key, sep=sep))
+                items.update(self.flatten_dict(v, new_key, sep=sep))
             else:
                 items[new_key] = v
         return items
@@ -61,3 +61,4 @@ class ModifcationDictTemplate:
         Returns newly created dict of original form.
         """
         return self.__new_dict
+    

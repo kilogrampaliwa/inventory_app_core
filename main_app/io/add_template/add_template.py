@@ -3,7 +3,7 @@ from main_app.utils import *
 
 
 class AddTemplate:
-    def __init__(self, new_name: str, mandatory_dict_path: str, templates_dict_path: str, initial_dict_name: str = "none"):
+    def __init__(self, mandatory_dict_path: str, templates_dict_path: str, initial_dict_name: str = "none"):
         """
         Initializes the AddTemplate object.
 
@@ -17,7 +17,7 @@ class AddTemplate:
         Raises:
             ValueError: If the provided initial_dict_name does not exist in the templates.
         """
-        self.__name = new_name
+        self.__name = False
         self.__templates_dict_path = templates_dict_path
 
         self.__mandatory = load_json(mandatory_dict_path)
@@ -31,6 +31,21 @@ class AddTemplate:
                 raise ValueError("AddTemplate: initial_dict_name doesn't exist.")
 
         self.__modifier = ModifyInsides(self.__mandatory)
+
+
+    def __call__(self, name:str = "none", initial_dict_name: str = "none"):
+
+        if initial_dict_name != "none":
+            if plain_dict(initial_dict_name):
+                self.__mandatory = self.__templates[initial_dict_name]
+            else:
+                raise ValueError("AddTemplate: initial_dict_name doesn't exist.")
+
+        if name != "none":
+            self.__name = name
+
+        self.__modifier = ModifyInsides(self.__mandatory)
+
 
     def get_dict(self) -> dict:
         """
@@ -52,6 +67,8 @@ class AddTemplate:
             bool: True if the new dictionary is valid, False otherwise.
         """
         self.__validation = self.__modifier.update_check_valid(new_dict, self.__name)
+        if self.__name and self.__validation: self.__validation = True
+        else:                                 self.__validation = False
         return self.__validation
 
     def check_validation(self) -> bool:
