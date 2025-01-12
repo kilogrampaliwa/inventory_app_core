@@ -14,6 +14,7 @@ class TemplateFiller:
         Raises:
             ValueError: If the provided template_name does not exist in the templates.
         """
+        self.__templates_dict_path = templates_dict_path
         self.__templates = load_json(templates_dict_path)
         self.__validation = False
 
@@ -90,5 +91,5 @@ class TemplateFiller:
         """
         if self.__validation:
             return self.__modifier.give_dict()
-        else: 
+        else:
             raise ValueError("TemplateFiller: proper dictionary not created, probably empty spaces left.")

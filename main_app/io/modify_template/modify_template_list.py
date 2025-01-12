@@ -1,8 +1,8 @@
-from main_app.io.add_template.add_to_dict import ModifyInsides
+from main_app.io.modify_template.modify_to_dict import ModifyInsides
 from main_app.utils import *
 
 
-class AddTemplate:
+class ModifyTemplateList:
     def __init__(self, mandatory_dict_path: str, templates_dict_path: str, initial_dict_name: str = "none"):
         """
         Initializes the AddTemplate object.
