@@ -1,1 +1,1 @@
-from main_app.io.modify_template.modify_template_list import ModifyTemplateList
+from main_app.io.modify_template.add_template_list import AddTemplateList

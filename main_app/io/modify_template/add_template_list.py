@@ -2,7 +2,7 @@ from main_app.io.modify_template.modify_to_dict import ModifyInsides
 from main_app.utils import *
 
 
-class ModifyTemplateList:
+class AddTemplateList:
     def __init__(self, mandatory_dict_path: str, templates_dict_path: str, initial_dict_name: str = "none"):
         """
         Initializes the AddTemplate object.
@@ -26,7 +26,9 @@ class ModifyTemplateList:
 
         if initial_dict_name != "none":
             if plain_dict(initial_dict_name):
-                self.__mandatory = self.__templates[initial_dict_name]
+                for row in self.__templates:
+                    if row["name"]== initial_dict_name:
+                        self.__mandatory = row
             else:
                 raise ValueError("AddTemplate: initial_dict_name doesn't exist.")
 
@@ -90,10 +92,18 @@ class ModifyTemplateList:
         try:
             if self.__validation:
                 new_dict = self.__modifier.get_dict()
-                self.__templates[new_dict.keys()[0]] = new_dict[new_dict.keys()[0]]
+                self.__templates.append(new_dict[new_dict.keys()[0]])
                 save_json(self.__templates_dict_path, self.__templates)
+                self.__name = False
                 return True
             else:
                 return False
         except:
             return False
+
+    def remove_template(self, template_name:str) -> bool:
+
+        for row in self.__templates:
+            if row["name"]==template_name:
+                self.__templates.remove(row)
+        save_json(self.__templates_dict_path)

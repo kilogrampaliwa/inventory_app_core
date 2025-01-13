@@ -4,7 +4,6 @@ class ModifyInsides:
         Initialize the ModifyInsides with an optional initial dictionary.
         """
         self.__new = initial_dict if initial_dict else {}
-        self.__new = {key: "" for key in self.__needed}
 
 
     def get_dict(self)->dict:

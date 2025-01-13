@@ -10,7 +10,7 @@ class IOmodue:
         self.__current_inventory = SqliteUtils(database_path+"/inventory/current_inventory.db")
         self.__history_inventory = SqliteUtils(database_path+"/inventory/history_inventory.db")
 
-        self.modify_template_list = ModifyTemplateList(database_path+"/inventory/inventory_templates_mandatory.json", database_path+"/inventory/inventory_templates.json")
+        self.add_template_list = AddTemplateList(database_path+"/inventory/inventory_templates_mandatory.json", database_path+"/inventory/inventory_templates.json")
         self.__fill_template = TemplateFiller(database_path+"/inventory/inventory_templates.json")
 
     def take_dict(self, database_name:str)->list|dict:
@@ -64,3 +64,39 @@ class IOmodue:
         elif database_name in ["templates"]:
             self.__save_base(database_name, [new_dict_data], item_name)
 
+    def take_names_quantities(self, database_name:str, item_names: list) -> list:
+
+        database_list = self.take_dict(database_name)
+        out_list = []
+
+        for item_name in item_names:
+            for row in database_list:
+                if row["name"]==item_name:
+                    out_list.append({"name":row["name"], "quantity":row["quantity"]})
+        return out_list
+
+    def __modify_quantity(self, database_name:str, item_name:str, add_true_sub_false:bool, quantity_change:int=1)->bool:
+
+        database_list = self.take_dict(database_name)
+
+        for row in database_list:
+            if row["name"]==item_name:
+                if add_true_sub_false:  row["quantity"]+=quantity_change
+                else:                   row["quantity"]-=quantity_change
+                if row["quantity"]<=0:
+                    database_list.remove(row)
+        self.__save_base(database_name, database_list)
+
+        return True
+
+    def substract_quantity(self, database_name:str, item_name:str, quantity_to_substract:int=1) -> bool:
+
+        return self.__modify_quantity(database_name, item_name, False, quantity_to_substract)
+
+    def add_quantity(self, database_name:str, item_name:str, quantity_to_add:int=1) -> bool:
+
+        return self.__modify_quantity(database_name, item_name, True, quantity_to_add)
+
+    def remove_template(self, item_name:str):
+
+        self.add_template_list.remove_template(item_name)
