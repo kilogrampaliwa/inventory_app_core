@@ -65,7 +65,7 @@ class TemplateFiller:
         """
         self.__validation = self.__modifier.check_values_not_empty()
         return self.__validation
-    
+
     def create_proper_dict(self, flattened_dict: dict) -> bool:
         """
         Constructs a proper hierarchical dictionary from a flattened dictionary.
@@ -78,7 +78,7 @@ class TemplateFiller:
         """
         self.__validation = self.__modifier.create_proper_dict(flattened_dict)
         return self.__validation
-    
+
     def give_dict(self) -> dict:
         """
         Provides the constructed template dictionary if valid.

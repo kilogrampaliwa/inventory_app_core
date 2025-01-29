@@ -140,33 +140,3 @@ def print_sqlite_database(db_path: str):
 
 
 
-
-# Initialize the manager
-manager = SqliteUtils("example.db", "my_table")
-
-# Example data
-data = [
-    {"name": "Alice", "age": 30, "city": "New York"},
-    {"name": "Bob", "age": 25, "city": "Los Angeles"},
-    {"name": "Charlie", "age": 35, "city": "Chicago"},
-]
-
-# Save the data
-manager.save(data)
-
-# Fetch the data back
-fetched_data = manager.fetch_all()
-print(fetched_data)
-
-# Overwrite with new data
-new_data = [
-    {"name": "Diana", "age": 28, "city": "San Francisco"},
-    {"name": "Eve", "age": 22, "city": "Seattle"},
-]
-manager.overwrite(new_data)
-
-# Fetch the new data back
-updated_data = manager.fetch_all()
-print(updated_data)
-print('---------------------------------------')
-print_sqlite_database("example.db")
