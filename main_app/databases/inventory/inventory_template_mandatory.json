@@ -2,5 +2,6 @@
     "name": "name",
     "quantity":"quantity",
     "measuremant":"measurement",
-    "vat":"vat"
+    "vat":"vat",
+    "qr_code": "qr_code"
 }

@@ -5,7 +5,7 @@ from main_app.utils.json_utils import *
 
 class IOmodue:
 
-    def __int__(self, database_path:str):
+    def __init__(self, database_path:str):
 
         self.__current_inventory = SqliteUtils(database_path+"/inventory/current_inventory.db")
         self.__history_inventory = SqliteUtils(database_path+"/inventory/history_inventory.db")
@@ -16,6 +16,7 @@ class IOmodue:
     def take_dict(self, database_name:str)->list|dict:
 
         if   database_name=="current":      return self.__current_inventory.fetch_all()
+        elif database_name=="unsettled":    return self.__unsettled_inventory.fetch_all()
         elif database_name=="history":      return self.__history_inventory.fetch_all()
         elif database_name=="templates":    return self.__fill_template.get_flattened_whole_dict()
         else: raise ValueError("IOmodule: Database not achievable.")
@@ -41,7 +42,7 @@ class IOmodue:
                 except: raise ValueError("IOmodue: issue in savig database")
                 return False
         else:
-            if database_name in ["current", "history"]:  raise ValueError("IOmodule: Wrong data type.")
+            if database_name in ["current", "history","unsettled"]:  raise ValueError("IOmodule: Wrong data type.")
             elif database_name=="templates":
                 try:
                     self.__fill_template(item_name)
@@ -56,8 +57,7 @@ class IOmodue:
 
     def add_to_base(self, database_name:str, new_dict_data: dict, item_name:str = "none")->bool:
 
-
-        if database_name in ["current", "history"]:
+        if database_name in ["current", "history", "unsettled"]:
             modified_dict_list = self.take_dict(database_name)
             modified_dict_list.append(new_dict_data)
             self.__save_base(database_name, modified_dict_list)
@@ -100,3 +100,13 @@ class IOmodue:
     def remove_template(self, item_name:str):
 
         self.add_template_list.remove_template(item_name)
+
+    def delete_from_base(self, database_name:str, item_name:str):
+
+        if database_name in ["current", "history", "unsettled"]:
+            modified_dict_list = self.take_dict(database_name)
+            to_del = None
+            for x in modified_dict_list:
+                if x["name"] == item_name: to_del=x
+            modified_dict_list.remove(to_del)
+            self.__save_base(database_name, modified_dict_list)
