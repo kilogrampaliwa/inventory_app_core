@@ -1,5 +1,5 @@
-from main_app.io.template_filler.modifcation_dict_template import ModifcationDictTemplate
-from main_app.utils import *
+#from main_app.io.template_filler.modifcation_dict_template import ModifcationDictTemplate
+from main_app.utils import load_json, plain_dict
 
 class TemplateFiller:
 
@@ -32,6 +32,8 @@ class TemplateFiller:
             ValueError: If the provided template_name does not exist in the templates.
         """
         self.__validation = False
+
+        from main_app.io.template_filler.modifcation_dict_template import ModifcationDictTemplate
 
         if plain_dict(template_name): pass
         else: raise ValueError("TemplateFiller: template_name doesn't exist.")

@@ -1,5 +1,5 @@
 from main_app.io.modify_template.modify_to_dict import ModifyInsides
-from main_app.utils import *
+from main_app.utils import load_json, save_json, plain_dict
 
 
 class AddTemplateList:

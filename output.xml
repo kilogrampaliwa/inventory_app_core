@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.9.0 on win32)" generated="2025-02-04T13:44:50.062169" rpa="false" schemaversion="5">
+<suite id="s1" name="Run Python Tests" source="C:\inventory_app\inventory_app_core\run_python_tests.robot">
+<test id="s1-t1" name="Run Pytest Tests" line="10">
+<kw name="Run Process" owner="Process">
+<msg time="2025-02-04T13:44:50.109050" level="INFO">Starting process:
+python -m pytest "C:inventory_appinventory_app_coremain_appiomodify_template	est_add_template_list.py"</msg>
+<msg time="2025-02-04T13:44:50.109050" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-02-04T13:44:50.528270" level="INFO">Process completed.</msg>
+<arg>${PYTHON_EXEC}</arg>
+<arg>-m</arg>
+<arg>pytest</arg>
+<arg>${PYTHON_TEST_SCRIPT}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-02-04T13:44:50.109050" elapsed="0.419220"/>
+</kw>
+<status status="PASS" start="2025-02-04T13:44:50.109050" elapsed="0.419220"/>
+</test>
+<status status="PASS" start="2025-02-04T13:44:50.062169" elapsed="0.467500"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Run Python Tests" id="s1" pass="1" fail="0" skip="0">Run Python Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
