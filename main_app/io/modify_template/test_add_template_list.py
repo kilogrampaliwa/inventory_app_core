@@ -48,15 +48,15 @@ class TestAddTemplateList:
                 print("mandatory_0")
                 TestAddTemplateList.__del_jsons()
                 return False
-            if templates_0 != additiona_dict:
+            if templates_0 != [additiona_dict]:
                 print("templates_0")
                 TestAddTemplateList.__del_jsons()
                 return False
-            if mandatory_1 != mandatory_dict:
+            if mandatory_1 != additiona_dict:
                 print("mandatory_1")
                 TestAddTemplateList.__del_jsons()
                 return False
-            if templates_1 != additiona_dict:
+            if templates_1 != [additiona_dict]:
                 print("templates_1")
                 TestAddTemplateList.__del_jsons()
                 return False
