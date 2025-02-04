@@ -1,8 +1,9 @@
 
 
-def plain_dict(name:str, dictionary: dict)->bool:
-    
+def plain_dict(name:str, list_dictionaries: list[dict])->bool:
+
     try:
-        if name in dictionary.keys():       return True
-        else:                               return False
+        for dictionary in list_dictionaries:
+            if dictionary['name'] == name:                   return True
+            else:                               return False
     except: return False

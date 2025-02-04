@@ -30,17 +30,17 @@ class TestAddTemplateList:
             mandatory_dict = {"name": "name","quantity":"quantity","measuremant":"measurement","vat":"vat","qr_code": "qr_code"}
             additiona_dict = {"name": "extra_name","quantity":"quantity","measuremant":"measurement","vat":"vat","qr_code": "qr_code","extra": "extra"}
             with open("mandatory.json", 'w') as file:   json.dump(mandatory_dict, file, indent = 6)
-            with open("current.json"  , 'w') as file:   json.dump(additiona_dict, file, indent = 6)
+            with open("current.json"  , 'w') as file:   json.dump([additiona_dict], file, indent = 6)
             tested_object_0 = add_template_list.AddTemplateList("mandatory.json", "current.json")
             tested_object_1 = add_template_list.AddTemplateList("mandatory.json", "current.json", "extra_name")
 
-            mandatory_0 = tested_object_0.__mandatory
-            templates_0 = tested_object_0.__templates
-            modifier_0  = tested_object_0.__modifier
+            mandatory_0 = tested_object_0._AddTemplateList__mandatory
+            templates_0 = tested_object_0._AddTemplateList__templates
+            modifier_0  = tested_object_0._AddTemplateList__modifier
 
-            mandatory_1 = tested_object_1.__mandatory
-            templates_1 = tested_object_1.__templates
-            modifier_1  = tested_object_1.__modifier
+            mandatory_1 = tested_object_1._AddTemplateList__mandatory
+            templates_1 = tested_object_1._AddTemplateList__templates
+            modifier_1  = tested_object_1._AddTemplateList__modifier
 
             true_flag = True
 
@@ -64,8 +64,8 @@ class TestAddTemplateList:
 
             return True
 
-        except:
-            print("except")
+        except Exception as e:
+            print(f"except {e}")
             TestAddTemplateList.__del_jsons()
             return False
 

@@ -25,7 +25,7 @@ class AddTemplateList:
         self.__validation = False
 
         if initial_dict_name != "none":
-            if plain_dict(initial_dict_name):
+            if plain_dict(initial_dict_name, self.__templates):
                 for row in self.__templates:
                     if row["name"]== initial_dict_name:
                         self.__mandatory = row
