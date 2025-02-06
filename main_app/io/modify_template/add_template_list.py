@@ -17,7 +17,7 @@ class AddTemplateList:
         Raises:
             ValueError: If the provided initial_dict_name does not exist in the templates.
         """
-        self.__name = False
+        self.__called = False
         self.__templates_dict_path = templates_dict_path
 
         self.__mandatory = load_json(mandatory_dict_path)
@@ -35,17 +35,16 @@ class AddTemplateList:
         self.__modifier = ModifyInsides(self.__mandatory)
 
 
-    def __call__(self, name:str = "none", initial_dict_name: str = "none"):
+    def __call__(self, initial_dict_name: str = "none"):
 
         if initial_dict_name != "none":
-            if plain_dict(initial_dict_name):
-                self.__mandatory = self.__templates[initial_dict_name]
+            if plain_dict(initial_dict_name,self.__templates):
+                for x in self.__templates:
+                    if x["name"] == initial_dict_name:   self.__mandatory = x
             else:
                 raise ValueError("AddTemplate: initial_dict_name doesn't exist.")
 
-        if name != "none":
-            self.__name = name
-
+        self.__called  = True
         self.__modifier = ModifyInsides(self.__mandatory)
 
 
@@ -68,8 +67,8 @@ class AddTemplateList:
         Returns:
             bool: True if the new dictionary is valid, False otherwise.
         """
-        self.__validation = self.__modifier.update_check_valid(new_dict, self.__name)
-        if self.__name and self.__validation: self.__validation = True
+        self.__validation = self.__modifier.update_check_valid(new_dict, self.__mandatory["name"])
+        if self.__called and self.__validation: self.__validation = True
         else:                                 self.__validation = False
         return self.__validation
 
@@ -94,7 +93,7 @@ class AddTemplateList:
                 new_dict = self.__modifier.get_dict()
                 self.__templates.append(new_dict[new_dict.keys()[0]])
                 save_json(self.__templates_dict_path, self.__templates)
-                self.__name = False
+                self.__called = False
                 return True
             else:
                 return False

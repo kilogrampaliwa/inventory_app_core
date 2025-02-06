@@ -1,0 +1,10 @@
+[
+      {
+            "name": "extra_name",
+            "quantity": "quantity",
+            "measuremant": "measurement",
+            "vat": "vat",
+            "qr_code": "qr_code",
+            "extra": "extra"
+      }
+]
