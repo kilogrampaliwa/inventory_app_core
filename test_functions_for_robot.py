@@ -2,7 +2,7 @@ import sys
 import os
 
 # Add the parent directory to sys.path (this is the root directory of your project)
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__))))
 
 # Optional: Print sys.path to check if the path is added
 print("sys.path:", sys.path)

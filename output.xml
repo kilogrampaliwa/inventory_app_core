@@ -1,94 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.9.0 on win32)" generated="2025-02-09T17:33:02.119923" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2 (Python 3.9.0 on win32)" generated="2025-02-09T17:56:44.667240" rpa="false" schemaversion="5">
 <suite id="s1" name="Run Python Tests" source="C:\inventory_app\inventory_app_core\run_python_tests.robot">
 <test id="s1-t1" name="AddTemplateList Test Init" line="5">
 <kw name="TestAddTemplateList Test Init" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.151174" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.726965" level="INFO">${result} = True</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.151174" elapsed="0.000000">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.700940" elapsed="0.026025"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.151174" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-09T17:56:44.727968" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.151174" elapsed="0.000000">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.698831" elapsed="0.029137"/>
 </test>
 <test id="s1-t2" name="AddTemplateList Call Get Dict" line="8">
 <kw name="TestAddTemplateList Test Call Get Dict" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.161740" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.739967" level="INFO">${result} = True</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.160760" elapsed="0.001582">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.729968" elapsed="0.009999"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.162669" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-09T17:56:44.739967" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.151174" elapsed="0.011495">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.728971" elapsed="0.011992"/>
 </test>
 <test id="s1-t3" name="AddTemplateList Update Check Valid" line="11">
 <kw name="TestAddTemplateList Test Update Check Valid" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.166157" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.746971" level="INFO">Exception in test_update_check_valid: 0</msg>
+<msg time="2025-02-09T17:56:44.747966" level="INFO">${result} = False</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.165047" elapsed="0.001110">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.741965" elapsed="0.006001"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T17:56:44.747966" level="FAIL">'False' should be true.</msg>
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.166157" elapsed="0.000000"/>
+<status status="FAIL" start="2025-02-09T17:56:44.747966" elapsed="0.000000">'False' should be true.</status>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.164696" elapsed="0.001461">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="FAIL" start="2025-02-09T17:56:44.740963" elapsed="0.008002">'False' should be true.</status>
 </test>
 <test id="s1-t4" name="AddTemplateList Check Validation" line="14">
 <kw name="TestAddTemplateList Test Check Validation" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.166157" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.755965" level="INFO">Exception in test_check_validation: 0</msg>
+<msg time="2025-02-09T17:56:44.755965" level="INFO">${result} = False</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.166157" elapsed="0.000000">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.750968" elapsed="0.004997"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T17:56:44.757000" level="FAIL">'False' should be true.</msg>
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.166157" elapsed="0.000000"/>
+<status status="FAIL" start="2025-02-09T17:56:44.755965" elapsed="0.001035">'False' should be true.</status>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.166157" elapsed="0.000000">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="FAIL" start="2025-02-09T17:56:44.749968" elapsed="0.007032">'False' should be true.</status>
 </test>
 <test id="s1-t5" name="AddTemplateList Save Template" line="17">
 <kw name="TestAddTemplateList Test Save Template" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.172386" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.762735" level="INFO">Exception in test_save_template: 0</msg>
+<msg time="2025-02-09T17:56:44.762735" level="INFO">${result} = False</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.171349" elapsed="0.001037">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.757964" elapsed="0.004771"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T17:56:44.763767" level="FAIL">'False' should be true.</msg>
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.172386" elapsed="0.000000"/>
+<status status="FAIL" start="2025-02-09T17:56:44.762735" elapsed="0.001032">'False' should be true.</status>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.166157" elapsed="0.007203">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="FAIL" start="2025-02-09T17:56:44.757964" elapsed="0.005803">'False' should be true.</status>
 </test>
 <test id="s1-t6" name="AddTemplateList Remove Template" line="20">
 <kw name="TestAddTemplateList Test Remove Template" owner="test_functions_for_robot">
-<msg time="2025-02-09T17:33:02.176113" level="FAIL">ModuleNotFoundError: No module named 'main_app'</msg>
+<msg time="2025-02-09T17:56:44.770019" level="INFO">Exception in test_remove_template: save_json() missing 1 required positional argument: 'json_dat'</msg>
+<msg time="2025-02-09T17:56:44.770019" level="INFO">${result} = False</msg>
 <var>${result}</var>
-<status status="FAIL" start="2025-02-09T17:33:02.175090" elapsed="0.001023">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="PASS" start="2025-02-09T17:56:44.766008" elapsed="0.004011"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-02-09T17:56:44.770019" level="FAIL">'False' should be true.</msg>
 <arg>${result}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="NOT RUN" start="2025-02-09T17:33:02.176113" elapsed="0.000000"/>
+<status status="FAIL" start="2025-02-09T17:56:44.770019" elapsed="0.000000">'False' should be true.</status>
 </kw>
-<status status="FAIL" start="2025-02-09T17:33:02.174075" elapsed="0.003008">ModuleNotFoundError: No module named 'main_app'</status>
+<status status="FAIL" start="2025-02-09T17:56:44.764996" elapsed="0.006057">'False' should be true.</status>
 </test>
-<status status="FAIL" start="2025-02-09T17:33:02.119923" elapsed="0.058499"/>
+<status status="FAIL" start="2025-02-09T17:56:44.668202" elapsed="0.103819"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="6" skip="0">All Tests</stat>
+<stat pass="2" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Run Python Tests" id="s1" pass="0" fail="6" skip="0">Run Python Tests</stat>
+<stat name="Run Python Tests" id="s1" pass="2" fail="4" skip="0">Run Python Tests</stat>
 </suite>
 </statistics>
 <errors>
