@@ -1,10 +1,24 @@
 *** Settings ***
-Library    C:\inventory_app\inventory_app_core\main_app\io\modify_template\test_add_template_list.py
-*** Variables ***
-${PYTHON_EXEC}    python   # Use 'python3' if needed
-${PYTHON_TEST_SCRIPT}    C:\inventory_app\inventory_app_core\main_app\io\modify_template\test_add_template_list.py  # Replace with the path to your pytest file
+Library    test_functions_for_robot.py
 
 *** Test Cases ***
-Run Pytest Tests
-    Run Process    ${PYTHON_EXEC}    -m    pytest    ${PYTHON_TEST_SCRIPT}  
+AddTemplateList Test Init
+    ${result}=      testAddTemplateList_test_init
+    Should Be True    ${result}
+AddTemplateList Call Get Dict
+    ${result}=      testAddTemplateList_test_call_get_dict
+    Should Be True    ${result}
+AddTemplateList Update Check Valid
+    ${result}=      testAddTemplateList_test_update_check_valid
+    Should Be True    ${result}
+AddTemplateList Check Validation
+    ${result}=      testAddTemplateList_test_check_validation
+    Should Be True    ${result}
+AddTemplateList Save Template
+    ${result}=      testAddTemplateList_test_save_template
+    Should Be True    ${result}
+AddTemplateList Remove Template
+    ${result}=      testAddTemplateList_test_remove_template
+    Should Be True    ${result}
+
 

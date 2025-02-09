@@ -9,7 +9,7 @@ from main_app.io.modify_template import add_template_list
 class TestAddTemplateList:
 
 
-    @staticmethod
+    #@staticmethod
     def __delete_file(filename):
         """Deletes the given file in the current directory if it exists."""
         file_path = os.path.join(os.getcwd(), filename)  # Get full path in the current directory
@@ -18,13 +18,13 @@ class TestAddTemplateList:
             os.remove(file_path)
 
 
-    @staticmethod
+    #@staticmethod
     def __del_jsons():
         TestAddTemplateList.__delete_file("mandatory.json")
         TestAddTemplateList.__delete_file("current.json"  )
 
 
-    @staticmethod
+    #@staticmethod
     def __initiation():
             mandatory_dict = {"name": "name","quantity":"quantity","measuremant":"measurement","vat":"vat","qr_code": "qr_code"}
             additiona_dict = {"name": "extra_name","quantity":"quantity","measuremant":"measurement","vat":"vat","qr_code": "qr_code","extra": "extra"}
@@ -36,7 +36,7 @@ class TestAddTemplateList:
 
 
 
-    @staticmethod
+    #@staticmethod
     def test_init():
         try:
 
@@ -79,7 +79,7 @@ class TestAddTemplateList:
             return False
 
 
-    @staticmethod
+    #@staticmethod
     def test_call_get_dict():
         try:
 
@@ -122,7 +122,7 @@ class TestAddTemplateList:
 
 
 
-    @staticmethod
+    #@staticmethod
     def test_update_check_valid():
         try:
             tested_object, _, _, additiona_dict = TestAddTemplateList.__initiation()
@@ -142,7 +142,7 @@ class TestAddTemplateList:
             print(f"Exception in test_update_check_valid: {e}")
             return False
 
-    @staticmethod
+    #@staticmethod
     def test_check_validation():
         try:
             tested_object, _, _, _ = TestAddTemplateList.__initiation()
@@ -158,7 +158,7 @@ class TestAddTemplateList:
             print(f"Exception in test_check_validation: {e}")
             return False
 
-    @staticmethod
+    #@staticmethod
     def test_save_template():
         try:
             tested_object, _, _, _ = TestAddTemplateList.__initiation()
@@ -174,7 +174,7 @@ class TestAddTemplateList:
             print(f"Exception in test_save_template: {e}")
             return False
 
-    @staticmethod
+    #@staticmethod
     def test_remove_template():
         try:
             tested_object, _, _, additiona_dict = TestAddTemplateList.__initiation()
