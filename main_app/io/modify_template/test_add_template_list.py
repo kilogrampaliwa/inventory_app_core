@@ -126,7 +126,8 @@ class TestAddTemplateList:
     def test_update_check_valid():
         try:
             tested_object, _, _, additiona_dict = TestAddTemplateList.__initiation()
-            
+            tested_object()
+
             valid_update = {"name": "valid_name", "quantity": "10", "measuremant": "kg", "vat": "20", "qr_code": "12345"}
             invalid_update = {"name": "invalid_name", "missing_field": "oops"}
 
@@ -146,6 +147,7 @@ class TestAddTemplateList:
     def test_check_validation():
         try:
             tested_object, _, _, _ = TestAddTemplateList.__initiation()
+            tested_object()
             valid_update = {"name": "valid_name", "quantity": "10", "measuremant": "kg", "vat": "20", "qr_code": "12345"}
             
             tested_object.update_check_valid(valid_update)
@@ -162,6 +164,7 @@ class TestAddTemplateList:
     def test_save_template():
         try:
             tested_object, _, _, _ = TestAddTemplateList.__initiation()
+            tested_object()
             valid_update = {"name": "valid_name", "quantity": "10", "measuremant": "kg", "vat": "20", "qr_code": "12345"}
             
             tested_object.update_check_valid(valid_update)
@@ -178,6 +181,7 @@ class TestAddTemplateList:
     def test_remove_template():
         try:
             tested_object, _, _, additiona_dict = TestAddTemplateList.__initiation()
+            tested_object()
             template_name = additiona_dict["name"]
             
             tested_object.remove_template(template_name)
